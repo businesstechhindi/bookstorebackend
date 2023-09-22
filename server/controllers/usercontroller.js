@@ -54,6 +54,7 @@ const loginUser = async (req, res) => {
       if (isMatch) {
         const token = jwt.sign({ email }, process.env.SECRET_KEY);
         res.cookie("jwt", token, {
+          domain: 'https://swapnil-shahare-book-store.netlify.app/',
           expires: new Date(Date.now() + 2592000000),
           httpOnly: true,
           secure: true,
