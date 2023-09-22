@@ -9,7 +9,7 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser");
 
 app.use(cookieParser());
-app.use(cors());
+app.use(cors({credentials: true, origin: true}))
 // Configure CORS to only allow requests from your Netlify site
 // const allowedOrigins = ['https://swapnil-shahare-book-store.netlify.app'];
 
