@@ -9,21 +9,21 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser");
 
 app.use(cookieParser());
-// app.use(cors({ origin: "https://swapnil-shahare-book-store.netlify.app/" }));
+app.use(cors({ origin: "https://swapnil-shahare-book-store.netlify.app/",credentials: true }));
 // Configure CORS to only allow requests from your Netlify site
-const allowedOrigins = ['https://swapnil-shahare-book-store.netlify.app'];
+// const allowedOrigins = ['https://swapnil-shahare-book-store.netlify.app'];
 
-app.use(
-  cors({
-    origin: function (origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error('Not allowed by CORS'));
-      }
-    },
-  })
-);
+// app.use(
+//   cors({
+//     origin: function (origin, callback) {
+//       if (!origin || allowedOrigins.includes(origin)) {
+//         callback(null, true);
+//       } else {
+//         callback(new Error('Not allowed by CORS'));
+//       }
+//     },
+//   })
+// );
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(userRoute);
