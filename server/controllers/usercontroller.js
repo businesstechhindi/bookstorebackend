@@ -55,7 +55,7 @@ const loginUser = async (req, res) => {
         const token = jwt.sign({ email }, process.env.SECRET_KEY);
         res.cookie("jwt", token, {
           expires: new Date(Date.now() + 2592000000),
-          // httpOnly: true,
+          httpOnly: true,
           secure: true,
         });
         res.status(201).json({ success: true, registeredUser });
