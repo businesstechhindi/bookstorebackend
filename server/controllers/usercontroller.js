@@ -57,7 +57,7 @@ const loginUser = async (req, res) => {
           expires: new Date(Date.now() + 2592000000),
           httpOnly: true,
           secure: true,
-          SameSite:none
+          sameSite:none
         });
         res.status(201).json({ success: true, registeredUser });
       } else {
