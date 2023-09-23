@@ -11,9 +11,10 @@ const cookieParser = require("cookie-parser");
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "https://swapnil-shahare-book-store.netlify.app",
-    credentials: true,
-  })
+  origin: ['https://swapnil-shahare-book-store.netlify.app','http://localhost:5173'],
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true, // Allow cookies and HTTP authentication
+})
 );
 // Configure CORS to only allow requests from your Netlify site
 // const allowedOrigins = ['https://swapnil-shahare-book-store.netlify.app'];
