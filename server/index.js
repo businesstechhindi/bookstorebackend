@@ -9,7 +9,14 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser");
 
 app.use(cookieParser());
-app.use(cors());
+// Enable CORS for a specific origin
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'https://book-store-frontend-6zte.onrender.com');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  next();
+});
+// app.use(cors());
 // Configure CORS to only allow requests from your Netlify site
 // const allowedOrigins = ['https://swapnil-shahare-book-store.netlify.app'];
 
